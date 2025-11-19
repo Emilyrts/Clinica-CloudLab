@@ -1,4 +1,5 @@
 from config import db
+from datetime import datetime
 
 class Exame(db.Model):
     __tablename__ = "exames"
@@ -18,3 +19,28 @@ class Exame(db.Model):
             'descricao': self.descricao
         }
 
+
+class Resultado(db.Model):
+    __tablename__ = "resultados"
+
+    id = db.Column(db.Integer, primary_key=True)
+    data_resultado = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    arquivo_url = db.Column(db.String(255), nullable=False)
+    descricao = db.Column(db.Text, nullable=True)
+
+    encaminhamento_id = db.Column(db.Integer, db.ForeignKey('encaminhamentos.id'), nullable=False)
+    encaminhamento = db.relationship("Encaminhamento", back_populates="resultado")
+
+    def __init__(self, arquivo_url, encaminhamento_id, descricao=None):
+        self.arquivo_url = arquivo_url
+        self.encaminhamento_id = encaminhamento_id
+        self.descricao = descricao
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'data_resultado': self.data_resultado.isoformat(),
+            'arquivo_url': self.arquivo_url,
+            'descricao': self.descricao,
+            'encaminhamento_id': self.encaminhamento_id,
+        }
