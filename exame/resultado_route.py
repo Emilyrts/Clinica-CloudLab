@@ -36,11 +36,8 @@ def criar_resultado():
         paciente_id_dono = encaminhamento.paciente_id or encaminhamento.dependente.titular.id 
 
         nova_notificacao = Notificacao(
-            titulo="Seu Resultado está pronto!",
             mensagem=f"O resultado do exame {encaminhamento.exame.nome} já está disponível para visualização.",
-            tipo="RESULTADO_PRONTO",
             paciente_id=paciente_id_dono,
-            encaminhamento_id=encaminhamento_id
         )
         db.session.add(nova_notificacao)
         db.session.commit()
