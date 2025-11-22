@@ -1,10 +1,20 @@
 from config import app, db
 from paciente.paciente_route import paciente_bp
 from agendamento.agendamento_route import agendamento_bp
+from dependente.dependente_route import dependente_bp
 from exame.exame_route import exame_bp
+from exame.resultado_route import resultado_bp
+from encaminhamento.encaminhamento_route import encaminhamento_bp
+from login.auth import paciente_auth_bp
+from notificacao.notificacao_route import notificacao_bp
 app.register_blueprint(paciente_bp)
 app.register_blueprint(agendamento_bp)
 app.register_blueprint(exame_bp)
+app.register_blueprint(dependente_bp)
+app.register_blueprint(encaminhamento_bp)
+app.register_blueprint(paciente_auth_bp)
+app.register_blueprint(resultado_bp)
+app.register_blueprint(notificacao_bp)
 
 @app.route("/", methods=['GET'])
 def home():

@@ -11,6 +11,7 @@ class Paciente(db.Model):
     email = db.Column(db.String(100))
     senha_hash = db.Column(db.String(128), nullable=False)
     telefone = db.Column(db.String(15))
+    dependentes = db.relationship("Dependente", back_populates="titular")
 
     def __init__(self, nome, cpf, data_nasc, email, senha, telefone):
         self.nome = nome

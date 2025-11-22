@@ -36,8 +36,9 @@ def criar_paciente():
 
 @paciente_bp.route('/', methods=['GET'])
 def listar_paciente():
-
     pacientes = Paciente.query.all()
+    if not pacientes:
+        return jsonify({'mensagem': 'Nenhum Paciente encontrado.'}), 404
     return jsonify([paciente.to_dict() for paciente in pacientes]), 200
 
 @paciente_bp.route('/<int:id>', methods=['GET'])

@@ -23,7 +23,7 @@ class Agendamento(db.Model):
     def to_dict(self):
         return {
             'id_agendamento': self.id_agendamento,
-            'data_hora': self.data_hora.strftime("%Y-%m-%d %H:%M:%S"),
+            'data_hora': self.data_hora.strftime("%Y-%m-%d %H:%M"),
             'status': self.status,
             'fk_paciente': self.fk_paciente,
             'fk_exame': self.fk_exame
