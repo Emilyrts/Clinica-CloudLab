@@ -8,6 +8,15 @@ from exame.resultado_route import resultado_bp
 from encaminhamento.encaminhamento_route import encaminhamento_bp
 from login.auth import paciente_auth_bp
 from notificacao.notificacao_route import notificacao_bp
+
+### MODELS 
+from exame.exame_model import Exame, Resultado
+from paciente.paciente_model import Paciente 
+from dependente.dependente_model import Dependente
+from encaminhamento.encaminhamento_model import Encaminhamento
+from notificacao.notificacao_model import Notificacao
+
+## BLUEPRINT
 app.register_blueprint(paciente_bp)
 app.register_blueprint(agendamento_bp)
 app.register_blueprint(exame_bp)

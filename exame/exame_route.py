@@ -5,11 +5,10 @@ from exame.exame_model import Exame
 exame_bp = Blueprint('exame_bp', __name__, url_prefix='/exames')
 
 @exame_bp.route('/', methods=['GET'])
-def mostrar_pagina():
-    pass
-    # return render_template('')
+def mostrar_exame():
+    return render_template('agendar.html')
 
-@exame_bp.route('/criar_exame', methods=['POST'])
+@exame_bp.route('/', methods=['POST'])
 def criar_exame():
     data = request.get_json()
     novo_exame = Exame(

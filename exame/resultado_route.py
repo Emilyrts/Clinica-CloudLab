@@ -31,12 +31,18 @@ def criar_resultado():
         )
 
         db.session.add(novo)
-        db.session.commit()
+        
+        if encaminhamento.paciente_id:
+            paciente_id_dono = encaminhamento.paciente_id
+        elif hasattr(encaminhamento, 'dependente') and encaminhamento.dependente:
+            paciente_id_dono = encaminhamento.dependente.titular.id
+        else:
+            db.session.rollback()
+            return jsonify({"erro": "Não foi possível determinar o paciente responsável pela notificação."}), 500
 
-        paciente_id_dono = encaminhamento.paciente_id or encaminhamento.dependente.titular.id 
 
         nova_notificacao = Notificacao(
-            mensagem=f"O resultado do exame {encaminhamento.exame.nome} já está disponível para visualização.",
+            mensagem=f"O resultado do exame {encaminhamento.exame.descricao} já está disponível para visualização.",
             paciente_id=paciente_id_dono,
         )
         db.session.add(nova_notificacao)
@@ -49,7 +55,7 @@ def criar_resultado():
 
     except IntegrityError:
         db.session.rollback()
-        return jsonify({"erro": "Erro de integridade."}), 400
+        return jsonify({"erro": "Erro de integridade (Verifique chaves estrangeiras)."}), 400
     except Exception as e:
         db.session.rollback()
         return jsonify({"erro": f"Erro inesperado: {str(e)}"}), 500
@@ -58,10 +64,9 @@ def criar_resultado():
 @resultado_bp.route('/', methods=['GET'])
 def listar_resultados():
     resultados = Resultado.query.all()
-    if not resultados:
-        return jsonify({'mensagem': 'Nenhum resultado encontrado.'}), 404
-
-    return jsonify([r.to_dict() for r in resultados]), 200
+    lista_resultados = [r.to_dict() for r in resultados]
+    return render_template('resultados.html', 
+                           resultados=lista_resultados), 200
 
 
 @resultado_bp.route('/<int:id_res>', methods=['GET'])

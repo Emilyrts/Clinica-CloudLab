@@ -21,7 +21,7 @@ class Encaminhamento(db.Model):
     resultado = db.relationship("Resultado", back_populates="encaminhamento", uselist=False)
 
     def __init__(self, descricao, arquivo_url, medico_nome, medico_crm,
-                paciente_id=None, dependente_id=None, exame_id=None):
+                 paciente_id=None, dependente_id=None, exame_id=None):
 
         self.descricao = descricao
         self.arquivo_url = arquivo_url
@@ -34,6 +34,8 @@ class Encaminhamento(db.Model):
 
     def to_dict(self):
         data_formatada = self.data_emissao.strftime('%Y-%m-%d %H:%M') if self.data_emissao else None
+        nome_exame = self.exame.descricao if self.exame else None
+        
         return {
             'id': self.id,
             'data_emissao': data_formatada,
@@ -43,5 +45,6 @@ class Encaminhamento(db.Model):
             'medico_crm': self.medico_crm,
             'paciente_id': self.paciente_id,
             'dependente_id': self.dependente_id,
-            'exame_id': self.exame_id
+            'exame_id': self.exame_id,
+            'nome_exame': nome_exame 
         }

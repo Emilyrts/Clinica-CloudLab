@@ -14,15 +14,13 @@ class Notificacao(db.Model):
     paciente_id = db.Column(db.Integer, db.ForeignKey('pacientes.id'), nullable=False)
     paciente = relationship("Paciente", backref="notificacoes", lazy=True)
 
-    def __init__(self, titulo, mensagem,paciente_id):
-        self.titulo = titulo
+    def __init__(self, mensagem,paciente_id):
         self.mensagem = mensagem
         self.paciente_id = paciente_id
         
     def to_dict(self):
         return {
             'id': self.id,
-            'titulo': self.titulo,
             'mensagem': self.mensagem,
             'data_envio': self.data_envio.isoformat(),
             'lida': self.lida,

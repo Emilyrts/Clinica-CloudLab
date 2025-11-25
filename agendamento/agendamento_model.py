@@ -12,7 +12,7 @@ class Agendamento(db.Model):
     fk_exame = db.Column(db.Integer, db.ForeignKey('exames.id'), nullable=False)
 
     paciente = db.relationship('Paciente', backref='agendamentos', lazy=True)
-    exame = db.relationship('Exame', backref='agendamentos', lazy=True)
+    exame = db.relationship('Exame', backref='agendamentos', lazy=True) # Relacionamento com o modelo Exame
 
     def __init__(self, data_hora, status, fk_paciente, fk_exame):
         self.data_hora = data_hora
@@ -21,25 +21,28 @@ class Agendamento(db.Model):
         self.fk_exame = fk_exame
 
     def to_dict(self):
+        # Inicializa variáveis para evitar AttributeError
+        nome_servico = "Exame Indefinido"
+        
+        # Acessa o nome do exame através do relacionamento
+        if self.exame:
+            # Assumindo que a descrição do Exame é o nome principal do serviço
+            nome_servico = self.exame.descricao
+            
         return {
-            'id_agendamento': self.id_agendamento,
-            'data_hora': self.data_hora.strftime("%Y-%m-%d %H:%M"),
+            'id': self.id_agendamento,
+            'data_hora_raw': self.data_hora.isoformat(), # Manter o formato ISO para uso técnico
+            
+            # Campos formatados para uso no HTML (exemplo da sua rota)
+            'data_agendamento': self.data_hora.strftime("%A, %d de %B de %Y"), # Ex: segunda-feira, 22 de Setembro de 2025
+            'hora_agendamento': self.data_hora.strftime("%H:%M"),             # Ex: 08:30
+            
             'status': self.status,
+            'servico': nome_servico, # Nome do serviço (do Exame)
             'fk_paciente': self.fk_paciente,
             'fk_exame': self.fk_exame
         }
 
     def __repr__(self):
         return f"<Agendamento {self.id_agendamento} - {self.status}>"
-
-
-
-'''Tipo de criação:'''
-
-#     novo_agendamento = Agendamento(
-#     data_hora=datetime(2025, 11, 10, 10, 30),
-#     status="pendente",
-#     fk_paciente=1,
-#     fk_exame=2
-# )
 

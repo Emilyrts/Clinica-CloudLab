@@ -14,6 +14,9 @@ def criar_agendamento():
     try:
         data = request.get_json()
 
+        if not all(k in data for k in ('data_hora', 'fk_paciente', 'fk_exame')):
+            return jsonify({"erro": "Campos obrigatórios ausentes."}), 400
+        
         novo = Agendamento(
             data_hora=datetime.strptime(data['data_hora'], "%Y-%m-%d %H:%M:%S"),
             status=data.get('status', 'pendente'),  # default 'pendente'
@@ -30,14 +33,12 @@ def criar_agendamento():
         return jsonify({"erro": str(e)}), 400
 
 
-@agendamento_bp.route('/', methods=['GET'])
+@agendamento_bp.route('/historico', methods=['GET'])
 def listar_agendamentos():
     agendamentos = Agendamento.query.all()
-
-    if not agendamentos:
-        return jsonify({'mensagem': 'Nenhum agendamento encontrado.'}), 404
-   
-    return jsonify([agendamento.to_dict() for agendamento in agendamentos]), 200
+    lista_agendamentos = [agendamento.to_dict() for agendamento in agendamentos]
+    return render_template('historico.html', 
+                           agendamentos=lista_agendamentos), 200
 
 @agendamento_bp.route('/<int:id>', methods=['GET'])
 def obter_agendamento(id):

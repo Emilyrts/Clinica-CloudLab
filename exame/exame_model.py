@@ -37,10 +37,21 @@ class Resultado(db.Model):
         self.descricao = descricao
 
     def to_dict(self):
+        nome_exame = None
+        tipo_exame = None
+
+        if self.encaminhamento and self.encaminhamento.exame:
+            exame_obj = self.encaminhamento.exame
+            nome_exame = exame_obj.descricao
+            tipo_exame = exame_obj.tipo
+            
         return {
             'id': self.id,
             'data_resultado': self.data_resultado.isoformat(),
             'arquivo_url': self.arquivo_url,
-            'descricao': self.descricao,
+            'descricao_resultado': self.descricao, 
             'encaminhamento_id': self.encaminhamento_id,
+            
+            'nome_exame': nome_exame,
+            'tipo_exame': tipo_exame,
         }

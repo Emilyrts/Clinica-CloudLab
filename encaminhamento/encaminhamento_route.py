@@ -59,7 +59,6 @@ def criar_encaminhamento():
 
         return jsonify({
             "mensagem": "Encaminhamento criado com sucesso!",
-            "encaminhamento": novo.to_dict()
         }), 201
 
     except IntegrityError as e:
