@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title >CloudLab</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon.ico">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/agendar.css'>
+    <script src='/static/js/main.js'></script>
+</head>
+<body>
+    <nav id="navbar">
+        <img src="/static/img/Logo.png" alt="Logo do laboratório">
+        <h1>Agendar Novo Exame</h1>
+        <a class="voltar" href="#" ><img src="/static/img/setaVoltar.png" alt="Icone voltar"></a>
+    </nav>
+    <section id="form-container">
+        <section id="inputs">
+            <h3>CPF</h3>
+            <input class="form" type="text" placeholder="xxx.xxx.xxx-xx">
+
+            <h3>Nome Completo</h3>
+            <input type="text" placeholder="Seu nome completo">
+
+            <h3>Data de nascimento</h3>
+            <input type="date" placeholder="dd/mm/aaaa">
+
+            <h3>Selecionar Exame</h3>
+            <select id="exame">
+                <option>Selecionar</option>
+                <option>WhatsApp</option>
+                <option>Email</option>
+            </select>
+
+            <h3>Observações médicas</h3>
+            <input type="text" placeholder="ex. Tenho alergia a amendoim">
+
+            <div class="dataHora">
+                <h3>Data</h3>
+                <input type="date" placeholder="dd/mm/aaaa">
+
+                <h3>Horário</h3>
+                <input type="time" min="08:00" max="18:00">
+            </div>
+
+            <div class="UniContato">
+                <h3>Unidade</h3>
+                <select id="unidade">
+                    <option>Selecionar</option>
+                    <option>WhatsApp</option>
+                    <option>Email</option>
+                </select>
+
+                <h3>Meio de contato</h3>
+                <select id="contato">
+                    <option>Selecionar</option>
+                    <option>WhatsApp</option>
+                    <option>Email</option>
+                </select>
+            </div>
+        </section>
+        <div id="lado-direito">
+            <section id="anexo">
+                <label for="arquivo">Anexar Encaminhamento</label>
+                <input type="file" id="arquivo" hidden>
+            </section>
+            <section id="pagamento">
+                <h3>Total a pagar</h3>
+                <input type="text" id="valor" value="R$ 0,00" readonly>
+
+                <button class="pagar">Realizar Pagamento</button>
+                <button class="cancelar">Finalizar Agendamento</button>
+            </section>
+        </div>
+    </section>
+</body>
+</html>
