@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-padrao: #fbf6eb;
+    --cor-azulmedio: #6fa8dc;
+    --cor-azulclaro: #92bce0;
+    --cor-azulpastel: #b5cfe4;
+    --cor-azulperola: #d8e3e7;
+    --cor-preto: #000000;
+    --texto: #000000;
+    --fonte-principal: 'Poppins', sans-serif;
+}
+
+body {
+    color: var(--texto);
+    font-family: var(--fonte-principal);
+    line-height: 1.6;
+}
+
+#navbar {
+    height: 5rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+
+}
+
+
+#navbar img{
+    height: 3rem;
+    margin-left: 1.6rem
+}
+
+#navbar a img{
+    height: 1.5rem;
+    margin-right: 2.5rem;
+}
+
+#search {
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    width: 65%;
+    height: 2rem;
+    border-radius: 1rem;
+    border: none;
+    padding-left: 2rem;
+    padding-right: 1rem;
+    background: rgba(180, 210, 230, 0.6);
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
+    background-image: url('/img/iconPesquisar.png');
+    background-repeat: no-repeat;
+    background-position: 0.6rem center; 
+    background-size: 1.2rem; 
+}
+
+button {
+    height: 2rem;
+    width: 5rem;
+    border: none;
+    border-radius: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: #B2D4EF;
+    color: #ffff;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2); 
+}
+
+#form-container {
+    display: flex;
+    gap: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.historico {
+    height: 10rem;
+    width: 55%;
+    padding: 1rem;
+    border: none;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    background: rgba(180, 210, 230, 0.6);
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.resultado:hover {
+    background: var(--cor-azulmedio);
+}
+
+.col-esquerda h2 {
+    margin-bottom: 0.3rem;
+}
+
+.col-direita p {
+    text-align: right;
+    margin-bottom: 0.2rem;
+}
+
+
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title >CloudLab</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon.ico">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/index.css'>
+    <script src='/static/jsmain.js'></script>
+</head>
+<body>
+    <nav id="navbar">
+        <img src="/static/img/Logo.png" alt="Logo do laboratório">
+        <div class="titulo">
+            <h2>CloudLab</h2>
+            <h5> Laboratório de exames</h5>
+        </div>
+        <ul class="menu">
+            <a href="#">Início</a>
+            <a href="#">Sobre Nós</a>
+            <a href="#">Exames</a>
+            <a href="#">Avaliações</a>
+            <a href="#">informações</a>
+        </ul>
+        <div class="acoes">
+            <a class="login" href="{{url_for('paciente_auth_routes.mostrar_login')}}">Login</a>
+            <a class="cadastro" href="#">Cadastre-se</a>
+        </div>
+    </nav>
+
+    <section id="inicio">
+        <div class="slogan">
+            <h1>Saúde começa com precisão.</h1>
+            <h5>Entre em contato conosco</h5>
+            <a href="#">Contate-nos</a>
+        </div>
+        <div class="nuvemtopo">
+            <img src="/static/img/nuvemTopo.png">
+            <img src="/static/img/nuvemCor.png">
+        </div>
+    </section>
+
+    <section id="sobre">
+        <div class="lab">
+            <img src="/static/img/labTopo.png">
+        </div>
+        
+    </section>
+
+</body>
+</html>

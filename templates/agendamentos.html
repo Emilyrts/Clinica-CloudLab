@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title >CloudLab</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon.ico">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/agendamentos.css'>
+    <script src="/static/js/calendar.js" defer></script>
+</head>
+<body>
+    <nav id="navbar">
+        <img src="/static/img/Logo.png" alt="Logo do laboratório">
+        <h1>Visualizar Agendamentos</h1>
+        <a class="voltar" href="#" ><img src="/static/img/setaVoltar.png" alt="Icone voltar"></a>
+    </nav>
+    <section id="calendario">
+        <div class="calendar">
+        <div class="header">
+            <button id="prev">◀</button>
+            <h2 id="monthYear"></h2>
+            <button id="next">▶</button>
+        </div>
+        <div class="weekdays">
+            <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
+        </div>
+        <div class="days" id="days"></div>
+        </div>
+    </section>
+
+    <section id="form-container">
+        <div class="historico">
+            <div class="col-esquerda">
+                <h2>segunda-feira, 22 de Setembro de 2025</h2>
+                <p>08:30</p>
+            </div>
+            <div class="col-direita">
+                <p>Agendamento de Exame de Sangue</p>
+            </div>
+        </div>
+
+        <div class="acoes">
+            <button class="resulOnline" href="#">Ver Resultado Online</button>
+            <button class="resulBaixar" href="#">Baixar PDF</button>
+            <button class="resulBaixar" href="#">Baixar PDF</button>
+        </div>
+    </section>
+</body>
+</html>
