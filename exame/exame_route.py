@@ -1,10 +1,15 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, render_template
 from config import db
 from exame.exame_model import Exame
 
 exame_bp = Blueprint('exame_bp', __name__, url_prefix='/exames')
 
-@exame_bp.route('/', methods=['POST'])
+@exame_bp.route('/', methods=['GET'])
+def mostrar_pagina():
+    pass
+    # return render_template('')
+
+@exame_bp.route('/criar_exame', methods=['POST'])
 def criar_exame():
     data = request.get_json()
     novo_exame = Exame(

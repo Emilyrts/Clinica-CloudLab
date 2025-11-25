@@ -1,9 +1,13 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, render_template
 from .paciente_model import Paciente
 from config import db
 from sqlalchemy.exc import IntegrityError
 
 paciente_bp = Blueprint('paciente_routes', __name__, url_prefix='/pacientes')
+
+@paciente_bp.route('/home', methods=['GET'])
+def mostrar_home():
+    return render_template('home.html')
 
 @paciente_bp.route('/', methods=['POST'])
 def criar_paciente():

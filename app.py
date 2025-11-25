@@ -1,4 +1,5 @@
 from config import app, db
+from flask import render_template
 from paciente.paciente_route import paciente_bp
 from agendamento.agendamento_route import agendamento_bp
 from dependente.dependente_route import dependente_bp
@@ -18,7 +19,12 @@ app.register_blueprint(notificacao_bp)
 
 @app.route("/", methods=['GET'])
 def home():
-    return {"message": "API Laboratorio CloudLab funcionando :)"}, 200
+    return {"message": "API Laboratorio CloudLab funcionando :) ",
+    "message 2":"Acesse /index para visualizar principal"}, 200
+
+@app.route('/index', methods=['GET'])
+def index():
+    return render_template('index.html')
 
 if __name__ == '__main__':
     with app.app_context():

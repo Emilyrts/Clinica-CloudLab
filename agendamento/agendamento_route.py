@@ -1,12 +1,15 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, render_template
 from .agendamento_model import Agendamento
 from config import db
 from datetime import datetime
 
 agendamento_bp = Blueprint('agedamento_routes', __name__, url_prefix= '/agendamentos')
 
-@agendamento_bp.route('/', methods=['POST'])
-@agendamento_bp.route('/', methods=['POST'])
+@agendamento_bp.route('/', methods=['GET'])
+def mostrarAgendamentos():
+    return render_template('agendamentos.html')
+
+@agendamento_bp.route('/criar_agendamento', methods=['POST'])
 def criar_agendamento():
     try:
         data = request.get_json()

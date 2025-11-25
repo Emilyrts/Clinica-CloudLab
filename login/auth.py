@@ -1,7 +1,12 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, render_template
 from paciente.paciente_model import Paciente
 
 paciente_auth_bp = Blueprint('paciente_auth_routes', __name__, url_prefix='/auth')
+
+
+@paciente_auth_bp.route('/login', methods=['GET'])
+def mostrar_login():
+    return render_template('login.html')
 
 @paciente_auth_bp.route('/login', methods=['POST'])
 def login_paciente_simples():

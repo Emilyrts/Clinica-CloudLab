@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, render_template
 from config import db
 from sqlalchemy.exc import IntegrityError
 from datetime import datetime
@@ -67,7 +67,8 @@ def listar_resultados():
 @resultado_bp.route('/<int:id_res>', methods=['GET'])
 def obter_resultado(id_res):
     resultado = Resultado.query.get_or_404(id_res)
-    return jsonify(resultado.to_dict()), 200
+    return render_template('resultados.html',
+                           resultado=resultado.to_dict()), 200
 
 @resultado_bp.route('/<int:id_res>', methods=['PUT'])
 def atualizar_resultado(id_res):
