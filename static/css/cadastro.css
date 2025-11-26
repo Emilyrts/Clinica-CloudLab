@@ -1,0 +1,246 @@
+* {
+    --fonte-principal: 'Poppins', sans-serif;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('/img/fundoceu2.jpg'); 
+
+}
+
+.main-container {
+    display: flex;
+    width: 1000px; 
+    height: 700px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    background: rgb(216, 227, 231, 0.7);
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+
+.side-panel {
+    flex: 1; 
+    padding: 40px;
+    box-sizing: border-box;
+    position: relative;
+    color: white; 
+    background-size: cover;
+    background-position: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.side-panel img{
+    height: 10rem;
+    width: 15rem;
+    margin-left: 1.6rem
+}
+.Logo.png {
+    width: 150px; 
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.slogan {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 60px;
+    width: 80%;
+}
+
+.microscope-image-container {
+    position: absolute; 
+    bottom: 40px;
+    right: -25px; 
+    width: 15rem; 
+    height: 15rem;
+    border-radius: 10px;
+    overflow: hidden; 
+}
+
+.microscope-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.form-section {
+    flex: 1; 
+    padding: 60px 40px;
+    box-sizing: border-box;
+    background-color: rgba(173, 216, 230, 0.75); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: #333;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+p {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.input-group {
+    position: relative;
+    margin: 15px 0;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 30px 10px 0; 
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background: transparent;
+    outline: none;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.input-group .icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #555;
+}
+
+input[type="text"]:not(.input-group input), input[type="email"] {
+    width: 100%;
+    padding: 10px 0;
+    margin: 15px 0;
+    border: none;
+    border-bottom: 2px solid #ccc; 
+    background: transparent;
+    outline: none;
+    font-size: 1em;
+}
+
+.social-login {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.iconGoogle.png, .facebook-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 48%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    gap: 8px; 
+}
+
+.iconGoogle.png {
+    background-color: #db4437; 
+}
+
+.iconFacebook.png {
+    background-color: #4267B2;
+}
+
+.separator {
+    text-align: center;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #555;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4c8bf5; 
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #3b76e0;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-link a {
+    color: #4c8bf5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a.entrarGoogle{
+    align-items: center;
+    background-color: var(--cor-azulpastel);
+    border-radius: 0.6rem;
+    height: 2.5rem;
+    width: 7rem;
+    border: 0;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    color: var(--cor-padrao);
+    cursor: pointer;
+    display: flex;            
+    justify-content: center;  
+    align-items: center;
+    text-decoration: none;
+    font-weight: 650; 
+}
+
+a.entrarGoogle img{
+    height: 2rem;
+}
+
+a.entrarGoogle:hover{
+    background-color: var(--cor-azulclaro);
+}
+
+a.entrarFacebook{
+    align-items: center;
+    background-color: var(--cor-azulpastel);
+    border-radius: 0.6rem;
+    height: 2.5rem;
+    width: 7rem;
+    border: 0;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    color: var(--cor-padrao);
+    cursor: pointer;
+    display: flex;            
+    justify-content: center;  
+    align-items: center;
+    text-decoration: none;
+    font-weight: 650; 
+}
+
+a.entrarFacebook img{
+    height: 2rem;
+}
+
+a.entrarFacebook:hover{
+    background-color: var(--cor-azulclaro);
+}
