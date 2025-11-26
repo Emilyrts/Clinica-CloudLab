@@ -30,26 +30,50 @@
     </section>
 
     <section id="form-container">
+    
+    {% for agendamento in agendamentos %}
+
         <div class="historico">
             <div class="col-esquerda">
-                <h2>Exame de Sangue</h2>
-                <p>08:30 sábado, 29 NOV 2025</p>
+                <h2>{{ agendamento.exame.tipo if agendamento.exame else 'Exame Indisponível' }}</h2>
+
+                <p>
+                    {{ agendamento.data_hora.strftime('%H:%M') }} 
+                    {{ agendamento.data_hora.strftime('%A') }}, 
+                    {{ agendamento.data_hora.day }} 
+                    {{ agendamento.data_hora.strftime('%b').upper() }} 
+                    {{ agendamento.data_hora.year }}
+                </p>
             </div>
+            
             <div class="col-direita">
                 <div class="acao-item reagendar-item">
-                    <a class="reagendar" href="#"><img src="/static/img/iconReagendar.png" alt="Icone reagendar"></a>
+                    <a class="reagendar" href="{{ url_for('paciente_routes.mostrar_home', id=agendamento.id) }}">
+                        <img src="/static/img/iconReagendar.png" alt="Icone reagendar">
+                    </a>
                     <p>Reagendar</p>
                 </div>
+                
                 <div class="acao-item cancelar-item">
-                    <a class="cancelar" href="#"><img src="/static/img/iconCancelar.png" alt="Icone cancelar"></a>
+                    <a class="cancelar" href="{{ url_for('paciente_routes.mostrar_home', id_agendamento=agendamento.id) }}">
+                        <img src="/static/img/iconCancelar.png" alt="Icone cancelar">
+                    </a>
                     <p>Cancelar</p>
                 </div>
+                
                 <div class="acao-item instrucoes-item">
-                    <a class="instrucoes" href="#"><img src="/static/img/iconInstucoes.png" alt="Icone instruções"></a>
+                    <a class="instrucoes" href="#">
+                        <img src="/static/img/iconInstucoes.png" alt="Icone instruções">
+                    </a>
                     <p>Instruções</p>
                 </div>
             </div>
         </div>
+
+    {% else %}
+        <p>Você não possui agendamentos futuros.</p>
+    {% endfor %}
+    
 
         <div class="acoes">
             <button class="" href="#">09961660, Rua Barão de Vitória</button>
