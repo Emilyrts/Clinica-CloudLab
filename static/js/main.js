@@ -95,19 +95,31 @@ function formatarMoeda(valor) {
 
 // 🚨 AJUSTE 3: Função de atualização de valor agora usa o valor formatado corretamente
 function atualizarValor() {
-    const selectExame = document.getElementById('fk_exame');
-    const valorInput = document.getElementById('valor_total');
+    // 1. Obtém o elemento <select> de exames pelo ID
+    const selectExame = document.getElementById('exame');
     
-    // Verifica se o elemento existe antes de tentar acessar
-    if (!selectExame || !valorInput) return;
-
-    // Pega o valor do atributo data-valor do item selecionado
-    const valor = selectExame.options[selectExame.selectedIndex].getAttribute('data-valor');
+    // 2. Obtém o campo de input "Total a pagar" pelo ID
+    const inputValor = document.getElementById('valor');
     
-    if (valor) {
-        valorInput.value = formatarMoeda(valor);
+    // 3. Pega a opção que está selecionada
+    const selectedOption = selectExame.options[selectExame.selectedIndex];
+    
+    // 4. Extrai o valor numérico do atributo 'data-valor'
+    const valorExame = selectedOption.getAttribute('data-valor');
+    
+    if (valorExame && parseFloat(valorExame) >= 0) {
+        // Converte para número e formata para a moeda brasileira (R$)
+        // Ex: 55.5 vira R$ 55,50
+        const valorFormatado = parseFloat(valorExame).toLocaleString('pt-BR', { 
+            style: 'currency', 
+            currency: 'BRL' 
+        });
+        
+        // 5. Atualiza o input "Total a pagar"
+        inputValor.value = valorFormatado;
     } else {
-        valorInput.value = 'R$ 0,00';
+        // Define o valor padrão R$ 0,00 se a opção "Selecionar" for escolhida
+        inputValor.value = "R$ 0,00";
     }
 }
 
