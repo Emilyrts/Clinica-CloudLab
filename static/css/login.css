@@ -16,7 +16,7 @@
 }
 
 body {
-    background-image: url(/img/fundoCeu.png);
+    background-image: url(/static/img/fundoCeu.png);
     color: var(--texto);
     font-family: var(--fonte-principal);
     line-height: 1.6;
@@ -73,7 +73,7 @@ input.email{
     border: none;
     padding-left: 2.5rem;
     background: rgba(180, 210, 230, 0.6);
-    background-image: url('/img/iconEmail.png');
+    background-image: url('/static/img/iconEmail.png');
     background-repeat: no-repeat;
     background-position: 0.6rem center; 
     background-size: 1.2rem; 
@@ -86,7 +86,7 @@ input.senha {
     border: none;
     padding-left: 2.5rem;
     background: rgba(180, 210, 230, 0.6);
-    background-image: url('/img/iconSenha.png');
+    background-image: url('/static/img/iconSenha.png');
     background-repeat: no-repeat;
     background-position: 0.6rem center;
     background-size: 1.2rem;

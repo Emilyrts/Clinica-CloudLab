@@ -7,16 +7,19 @@ class Exame(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     tipo = db.Column(db.String(100), nullable=False)
     descricao = db.Column(db.String(200))
+    valor = db.Column(db.Float, nullable=False)
 
-    def __init__(self, tipo, descricao):
+    def __init__(self, tipo, descricao, valor):
         self.tipo = tipo
         self.descricao = descricao
+        self.valor = valor
 
     def to_dict(self):
         return{
             'id': self.id,
             'tipo': self.tipo,
-            'descricao': self.descricao
+            'descricao': self.descricao,
+            'valor': self.valor
         }
 
 

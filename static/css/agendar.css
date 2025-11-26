@@ -43,20 +43,28 @@ body {
     margin-right: 2.5rem;
 }
 
+/* --- CORREÇÃO DE LAYOUT PRINCIPAL --- */
 #form-container {
     display: flex;
     gap: 2rem;
+    /* Centraliza o contêiner na página */
+    width: 90%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding-top: 2rem;
 }
 
 #lado-direito {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    width: 20rem; /* Mantido para ter uma largura definida */
 }
 
 #inputs {
     width: 35rem;
-    margin-left: 10rem;
+    /* Remove a margem fixa */
+    margin-left: 0; 
 }
 
 h3 {
@@ -94,8 +102,8 @@ select {
     box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     color: var(--cor-preto);
     cursor: pointer;
-    display: flex;            
-    justify-content: center;  
+    display: flex;             
+    justify-content: center;   
     align-items: center;
     text-decoration: none;
 
@@ -110,10 +118,12 @@ select {
 
 .UniContato {
     display: flex;
-    justify-content: center;
+    /* Alinha à esquerda */
+    justify-content: flex-start; 
     margin-top: 1.5rem;
     gap: 1rem;
-    margin-left: -3.5rem;
+    /* Remove a margem negativa */
+    margin-left: 0; 
 }
 
 #anexo {
@@ -124,7 +134,7 @@ select {
     border-radius: 1rem;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
     display: flex;
-    justify-content: center;  
+    justify-content: center;   
     padding: 1rem;
 }
 
@@ -138,13 +148,13 @@ select {
     background: rgba(180, 210, 230, 0.6);
     box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
     color: rgba(22, 22, 22, 0.5);
-    background-image: url('/img/iconAnexar.png');
+    background-image: url('/static/img/iconAnexar.png');
     background-repeat: no-repeat;
     background-position: 0.6rem center;
     background-size: 1.2rem;
     font-weight: 600;
     align-items: center;
-    display: flex;  
+    display: flex;   
 }
 
 #pagamento {
@@ -161,8 +171,10 @@ select {
     height: 2.2rem;
     border-radius: 0.7rem;
     border: none;
-    margin-left: 2.5rem;
-    margin-top: -2rem;
+    /* Remove as margens problemáticas */
+    margin-left: 0;
+    margin-top: 0;
+    
     padding-left: 1rem;
     background: rgba(180, 210, 230, 0.6);
     font-weight: 600;

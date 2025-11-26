@@ -186,7 +186,7 @@ body {
     color: white;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
     color: rgba(22, 22, 22, 0.5);
-    background-image: url('/img/iconSetaPraCima.png');
+    background-image: url('/static/img/iconSetaPraCima.png');
     background-repeat: no-repeat;
     background-position: 0.6rem center;
     background-size: 2rem;
@@ -197,7 +197,7 @@ body {
     color: white;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
     color: rgba(22, 22, 22, 0.5);
-    background-image: url('/img/iconDownload.png');
+    background-image: url('/static/img/iconDownload.png');
     background-repeat: no-repeat;
     background-position: 0.6rem center;
     background-size: 1.2rem;

@@ -4,23 +4,23 @@ from exame.exame_model import Exame
 
 exame_bp = Blueprint('exame_bp', __name__, url_prefix='/exames')
 
-@exame_bp.route('/', methods=['GET'])
-def mostrar_exame():
-    return render_template('agendar.html')
+
 
 @exame_bp.route('/', methods=['POST'])
 def criar_exame():
     data = request.get_json()
     novo_exame = Exame(
         tipo=data.get('tipo'),
-        descricao=data.get('descricao')
+        descricao=data.get('descricao'),
+        valor=data.get('valor')
     )
     db.session.add(novo_exame)
     db.session.commit()
     return jsonify({
         "id": novo_exame.id,
         "tipo": novo_exame.tipo,
-        "descricao": novo_exame.descricao
+        "descricao": novo_exame.descricao,
+        "valor":novo_exame.valor
     }), 201
 
 @exame_bp.route('/<int:id>', methods=['GET'])

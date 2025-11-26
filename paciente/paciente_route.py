@@ -9,6 +9,14 @@ paciente_bp = Blueprint('paciente_routes', __name__, url_prefix='/pacientes')
 def mostrar_home():
     return render_template('home.html')
 
+@paciente_bp.route('/login', methods=['GET'])
+def mostrar_login():
+    return render_template('login.html')
+
+@paciente_bp.route('/cadastro', methods=['GET'])
+def mostrar_cadastro():
+    return render_template('cadastro.html')
+
 @paciente_bp.route('/', methods=['POST'])
 def criar_paciente():
     nome = request.json.get('nome')
