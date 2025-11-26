@@ -55,6 +55,18 @@ function renderCalendar() {
   }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const resultadoStep = document.getElementById('resultado-step');
+    const viewResultBtn = document.getElementById('viewResultBtn');
+
+    if (resultadoStep && resultadoStep.classList.contains('active')) {
+        viewResultBtn.classList.remove('disabled');
+        viewResultBtn.onclick = () => {
+            window.location.href = '/html/resultados.html';
+        };
+    }
+});
+
 prevBtn.onclick = () => {
   date.setMonth(date.getMonth() - 1);
   renderCalendar();
