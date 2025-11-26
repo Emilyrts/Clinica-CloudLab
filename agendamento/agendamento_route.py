@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, render_template
+from flask import Blueprint, request, jsonify, render_template, redirect, url_for
 from .agendamento_model import Agendamento
 from exame.exame_model import Exame
 from config import db
@@ -13,30 +13,55 @@ def realizar_agendamento():
 
 @agendamento_bp.route('/visualizarAgendamentos', methods=['GET'])
 def mostrarAgendamentos():
-    return render_template('agendamentos.html') #MOSTRA TODOS OS EXAMES AGENDADOS
+    agendamentos = Agendamento.query.all()
+    return render_template('agendamentos.html', agendamentos=agendamentos) #MOSTRA TODOS OS EXAMES AGENDADOS
+
+# agendamento_route.py (Função criar_agendamento modificada)
 
 @agendamento_bp.route('/criar_agendamento', methods=['POST'])
 def criar_agendamento():
     try:
-        data = request.get_json()
-
-        if not all(k in data for k in ('data_hora', 'fk_paciente', 'fk_exame')):
-            return jsonify({"erro": "Campos obrigatórios ausentes."}), 400
+        # 1. Pega os dados do formulário HTML
+        data_form = request.form
         
+        # 🛑 Lógica para encontrar FK_PACIENTE: 
+        # Você deve ter uma forma de associar o CPF ou o usuário logado ao ID do paciente.
+        # Por enquanto, SIMULAMOS que o paciente tem ID 1.
+        # Você deve implementar a busca na tabela Paciente.
+        fk_paciente = 1 
+        
+        fk_exame = data_form.get('fk_exame')
+        data_agendamento = data_form.get('data_agendamento')
+        hora_agendamento = data_form.get('hora_agendamento')
+        
+        # 2. Validação básica (verifique se os campos principais foram preenchidos)
+        if not all([data_agendamento, hora_agendamento, fk_exame]):
+             # Retorna o usuário para o formulário com uma mensagem de erro, se necessário
+             return "Campos obrigatórios ausentes!", 400
+
+        # 3. Combina Data e Hora e converte para datetime
+        data_hora_completa_str = f"{data_agendamento} {hora_agendamento}:00"
+        data_hora_agendamento = datetime.strptime(data_hora_completa_str, "%Y-%m-%d %H:%M:%S")
+
+        # 4. Cria o objeto e salva no banco de dados
         novo = Agendamento(
-            data_hora=datetime.strptime(data['data_hora'], "%Y-%m-%d %H:%M:%S"),
-            status=data.get('status', 'pendente'),  # default 'pendente'
-            fk_paciente=data['fk_paciente'],
-            fk_exame=data['fk_exame']
+            data_hora=data_hora_agendamento,
+            status='pendente',
+            fk_paciente=fk_paciente,
+            fk_exame=fk_exame
         )
 
         db.session.add(novo)
         db.session.commit()
 
-        return jsonify({"mensagem": "Agendamento criado com sucesso!", "agendamento": novo.to_dict()}), 201
+        # 5. Redireciona para a página de visualização de agendamentos ou sucesso
+        # Use o nome da sua rota de destino:
+        return redirect(url_for('agendamento_routes.mostrarAgendamentos')) 
 
     except Exception as e:
-        return jsonify({"erro": str(e)}), 400
+        db.session.rollback()
+        # Em caso de erro (ex: erro no formato da data, erro de integridade), notifique o usuário
+        return f"Erro ao criar agendamento: {str(e)}", 500
 
 # LISTA UM HISTORICO COM OUTROS DADOS
 @agendamento_bp.route('/historico', methods=['GET'])
