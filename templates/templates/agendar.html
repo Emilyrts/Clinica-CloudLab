@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title >CloudLab</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon.ico">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/agendar.css'>
+    <script src='/static/js/main.js' defer></script>
+</head>
+<body>
+    <nav id="navbar">
+        <img src="/static/img/Logo.png" alt="Logo do laboratório">
+        <h1>Agendar Novo Exame</h1>
+        <a class="voltar" href="{{ url_for('paciente_routes.mostrar_home') }}" ><img src="/static/img/setaVoltar.png" alt="Icone voltar"></a>
+    </nav>
+    <section id="form-container">
+    <form method="POST" action="{{ url_for('agendamento_routes.criar_agendamento') }}">
+
+    <section id="inputs">
+        <h3>CPF</h3>
+        <input class="form" type="text" placeholder="xxx.xxx.xxx-xx" name="paciente_cpf">
+
+        <h3>Nome Completo</h3>
+        <input type="text" placeholder="Seu nome completo" name="paciente_nome">
+        <h3>Data de nascimento</h3>
+        <input type="date" placeholder="dd/mm/aaaa" name="paciente_nascimento">
+
+        <h3>Selecionar Exame</h3>
+        <select id="exame" name="fk_exame" onchange="atualizarValor()">
+            <option value="" disabled selected data-valor="0.00">Selecionar</option>
+            {% for exame in exames_disponiveis %}
+                <option value="{{ exame.id }}" data-valor="{{ exame.valor }}">
+                    {{ exame.tipo }}
+                </option>
+            {% endfor %}
+        </select>
+        
+        <h3>Observações médicas</h3>
+        <input type="text" placeholder="ex. Tenho alergia a amendoim" name="observacoes">
+
+        <div class="dataHora">
+            <h3>Data</h3>
+            <input type="date" placeholder="dd/mm/aaaa" name="data_agendamento" required>
+
+            <h3>Horário</h3>
+            <input type="time" min="08:00" max="18:00" name="hora_agendamento" required>
+        </div>
+
+        </section>
+    <div id="lado-direito">
+        <section id="pagamento">
+            <h3>Total a pagar</h3>
+            <input type="text" id="valor" value="R$ 0,00" readonly> 
+
+            <button class="pagar" type="button">Realizar Pagamento</button> 
+            
+            <button class="cancelar" type="submit">Finalizar Agendamento</button>
+        </section>
+    </div>
+
+    </form> 
+    </section>
+</body>
+</html>

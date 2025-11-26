@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title >CloudLab</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon.ico">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/agendamentos.css'>
+    <script src="/static/js/calendar.js" defer></script>
+</head>
+<body>
+    <nav id="navbar">
+        <img src="/static/img/Logo.png" alt="Logo do laboratório">
+        <h1>Visualizar Agendamentos</h1>
+        <a class="voltar" href="{{ url_for('paciente_routes.mostrar_home') }}" ><img src="/static/img/setaVoltar.png" alt="Icone voltar"></a>
+    </nav>
+    <section id="calendario">
+        <div class="calendar">
+        <div class="header">
+            <button id="prev">◀</button>
+            <h2 id="monthYear"></h2>
+            <button id="next">▶</button>
+        </div>
+        <div class="weekdays">
+            <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
+        </div>
+        <div class="days" id="days"></div>
+        </div>
+    </section>
+
+    <section id="form-container">
+    
+    {% for agendamento in agendamentos %}
+
+        <div class="historico">
+            <div class="col-esquerda">
+                <h2>{{ agendamento.exame.tipo if agendamento.exame else 'Exame Indisponível' }}</h2>
+
+                <p>
+                    {{ agendamento.data_hora.strftime('%H:%M') }} 
+                    {{ agendamento.data_hora.strftime('%A') }}, 
+                    {{ agendamento.data_hora.day }} 
+                    {{ agendamento.data_hora.strftime('%b').upper() }} 
+                    {{ agendamento.data_hora.year }}
+                </p>
+            </div>
+            
+            <div class="col-direita">
+                <div class="acao-item reagendar-item">
+                    <a class="reagendar" href="{{ url_for('paciente_routes.mostrar_home', id=agendamento.id) }}">
+                        <img src="/static/img/iconReagendar.png" alt="Icone reagendar">
+                    </a>
+                    <p>Reagendar</p>
+                </div>
+                
+                <div class="acao-item cancelar-item">
+                    <a class="cancelar" href="{{ url_for('paciente_routes.mostrar_home', id_agendamento=agendamento.id) }}">
+                        <img src="/static/img/iconCancelar.png" alt="Icone cancelar">
+                    </a>
+                    <p>Cancelar</p>
+                </div>
+                
+                <div class="acao-item instrucoes-item">
+                    <a class="instrucoes" href="#">
+                        <img src="/static/img/iconInstucoes.png" alt="Icone instruções">
+                    </a>
+                    <p>Instruções</p>
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+        <p>Você não possui agendamentos futuros.</p>
+    {% endfor %}
+    
+
+        <div class="acoes">
+            <button class="" href="#">09961660, Rua Barão de Vitória</button>
+            <button class="" href="#">(11) 23322046</button>
+            <button class="resulOnline" href="https://share.google/AEGx4SPLvfMBjmHnQ">[Ver no maps]</button>
+        </div>
+    </section>
+</body>
+</html>

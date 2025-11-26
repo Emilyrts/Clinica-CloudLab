@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title >CloudLab</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon.ico">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/historico.css'>
+    <script src='/static/js/main.js'></script>
+</head>
+<body>
+    <nav id="navbar">
+        <img src="/static/img/Logo.png" alt="Logo do laboratório">
+        <h1>Visualizar Histórico</h1>
+        <a class="voltar" href="{{ url_for('paciente_routes.mostrar_home') }}" ><img src="/static/img/setaVoltar.png" alt="Icone voltar"></a>
+    </nav>
+    <section id="search">
+        <form action="/search" method="get">
+            <input type="text" name="query" placeholder="Buscar...">
+            <button type="submit">Buscar</button>
+        </form>
+    </section>
+    <section id="form-container">
+        {% for agendamento in agendamentos %}
+            <div class="historico">
+                <div class="col-esquerda">
+                    <h2>{{ agendamento.data_agendamento }}</h2> 
+                    <p>{{ agendamento.hora_agendamento }}</p> 
+                </div>
+                <div class="col-direita">
+                    <p>Agendamento de {{ agendamento.servico }}</p>
+                    <p>Status: {{ agendamento.status | capitalize }}</p>
+                </div>
+            </div>
+            <hr>
+        {% else %}
+            <div class="historico">
+                <p>Não há agendamentos no histórico.</p>
+            </div>
+        {% endfor %}
+    </section>
+</body>
+</html>
