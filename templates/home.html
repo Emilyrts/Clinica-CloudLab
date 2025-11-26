@@ -3,12 +3,163 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title >CloudLab</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.ico">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/home.css'>
+    <script src="/js/calendar.js" defer></script>
 </head>
 <body>
-    
+    <section id="sidebar">
+        <img src="/img/Logo.png" class="logo" alt="Logo do laboratório" href="">
+        <div class="icons">
+            <a  href="/html/agendar.html" ><img class="agendar" src="/img/iconAgendarAzul.png" alt="Iconde de agendar"></a>
+            <a  href="/html/resultados.html" ><img class="resultado" src="/img/iconResultadoAzul.png" alt="Iconde de resultados"></a>
+            <a  href="/html/historico.html" ><img class="historico" src="/img/iconHistoricoAzul.png" alt="Iconde de historico"></a>
+            <a  href="/html/agendamentos.html" ><img class="agendamentos" src="/img/iconAgendamentoAzul.png" alt="Iconde de agendamentos"></a>
+            <a  href="#" ><img class="config" src="/img/iconConfigAzul.png" alt="Iconde de configurações"></a>
+        </div>
+        <div class="exit">
+            <a  href="/html/index.html" ><img class="sair" src="/img/iconSairAzul.png" alt="Iconde de sair"></a>
+        </div>
+    </section>
+
+    <nav id="navbar">
+        <form action="/search" method="get">
+            <input type="text" name="query" placeholder="Buscar...">
+            <button type="submit">Buscar</button>
+        </form>
+        <div class="dd">
+            <img src="/img/iconCalendario.png">
+            <h6>26 de Novembro de 2025</h6>
+        </div>
+        <div class="contato">
+            <a  href="https://web.whatsapp.com/" ><img class="suporte" src="/img/iconSuporte.png" alt="Iconde de suporte"></a>
+            <a  href="#" ><img class="notificacao" src="/img/iconNotificacao.png" alt="Iconde de notificação"></a>
+            <div class="inicial">
+                <h3>NM</h3>
+            </div>
+            <h5>Nome</h5>
+        </div>
+    </nav>
+
+    <h1>Inicío</h1>
+
+    <div class="main-content"> 
+       
+        <section id="atualizacoes">
+            <div class="col-esquerda">
+                <div class="saudacoes">
+                    <h2>Seja bem-vindo(a), nome!</h2>
+                    <p>Confira as ultimas atualizações:</p>
+                </div>
+                <div class="att">
+                    <div class="att1">
+                        <div class="col-esquerda">
+                            <h5>Exame agendado</h5>
+                        </div>
+                        <div class="col-direita">
+                            <a  href="/html/agendamentos.html" ><img class="" src="/img/iconSetaPraCima.png" alt="Iconde de seta"></a>
+                        </div>
+                    </div>
+                    <div class="att2">
+                        <div class="col-esquerda">
+                            <h6>Exame agendado</h6>
+                        </div>
+                        <div class="col-direita">
+                            <a  href="/html/agendamentos.html" ><img class="" src="/img/iconSetaPraCima.png" alt="Iconde de seta"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-direita">
+                <img class="logoD" src="/img/logoDexter.png" alt="Imagem do Dexter">
+            </div>
+        </section>
+
+        <section id="calendario">
+        <div class="calendar">
+            <div class="header">
+                <button id="prev">◀</button>
+                <h4 id="monthYear"></h4>
+                <button id="next">▶</button>
+            </div>
+            <div class="weekdays">
+                <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
+            </div>
+            <div class="days" id="days"></div>
+        </div>
+        </section>
+    </div> 
+    <h3>Ação Rápida</h3>
+    <div class="main-content2">
+        <div class="main-content3">
+            <section id="acoes-rapidas">
+                <div class="att1">
+                    <div class="col-esquerda">
+                        <a  href="/html/agendar.html" ><img class="" src="/img/iconAgendarBranco.png" alt="Icone de agendamento"></a>                    
+                    </div>
+                    <div class="col-direita">
+                        <h4>Agendar Exame</h4>
+                    </div>
+                </div>
+                <div class="att1">
+                    <div class="col-esquerda">
+                        <a  href="/html/resultados.html" ><img class="" src="/img/iconResultadoBranco.png" alt="Icone de resultado"></a>                    
+                    </div>
+                    <div class="col-direita">
+                        <h4>Ver Resultados</h4>
+                    </div>
+                </div>
+                <div class="att1">
+                    <div class="col-esquerda">
+                        <a  href="/html/agendamentos.html" ><img class="" src="/img/iconRagendarBranco.png" alt="Icone de reagendamento"></a>
+                    </div>
+                    <div class="col-direita">
+                        <h4>Reagendar Exame</h4>
+                    </div>
+                </div>
+            </section>
+
+            <section id="prox-exame">
+                <h3>Próximo exame</h3>
+                <div class="amarcar">
+                    <div class="col-esquerda">
+                        <h4>Hemograma Completo</h4>
+                        <h5>Ùltima vez realizado em: 25/11/2024</h5>
+                    </div>
+                    <div class="col-direita">
+                        <a  href="/html/agendar.html" ><img class="" src="/img/iconGotaBranca.png" alt="Icone de gota"></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="main-content4">
+            <h4 class="progress">Status do seu último exame</h4>
+            <div class="progress-tracker-container">
+                <div class="progress-bar-steps">
+                    <div class="step active">
+                        <span class="dot"></span>
+                        <p class="label">Exame Realizado</p>
+                    </div>
+                    <div class="step active">
+                        <span class="dot"></span>
+                        <p class="label">Em Análise</p>
+                    </div>
+                    <div class="step" id="resultado-step"> 
+                        <span class="dot"></span>
+                        <p class="label">Resultado Disponível</p>
+                    </div>
+                </div>
+                
+                <button class="resultado-btn disabled" id="viewResultBtn">
+                    Ver Resultado
+                </button>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 </html>

@@ -4,16 +4,16 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title >CloudLab</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.ico">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/agendar.css'>
-    <script src='/static/js/main.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/agendar.css'>
+    <script src='main.js'></script>
 </head>
 <body>
     <nav id="navbar">
-        <img src="/static/img/Logo.png" alt="Logo do laboratório">
+        <img src="/img/Logo.png" alt="Logo do laboratório">
         <h1>Agendar Novo Exame</h1>
-        <a class="voltar" href="{{ url_for('paciente_routes.mostrar_home') }}" ><img src="/static/img/setaVoltar.png" alt="Icone voltar"></a>
+        <a class="voltar" href="/html/home.html" ><img src="/img/setaVoltar.png" alt="Icone voltar"></a>
     </nav>
     <section id="form-container">
         <section id="inputs">
@@ -29,8 +29,8 @@
             <h3>Selecionar Exame</h3>
             <select id="exame">
                 <option>Selecionar</option>
-                <option>ECG</option>
-                <option>Hemograma completo</option>
+                <option>WhatsApp</option>
+                <option>Email</option>
             </select>
 
             <h3>Observações médicas</h3>
@@ -48,8 +48,8 @@
                 <h3>Unidade</h3>
                 <select id="unidade">
                     <option>Selecionar</option>
-                    <option>Paraiso</option>
-                    <option>Tatuape</option>
+                    <option>WhatsApp</option>
+                    <option>Email</option>
                 </select>
 
                 <h3>Meio de contato</h3>

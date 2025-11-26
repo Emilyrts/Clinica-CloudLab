@@ -4,14 +4,14 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title >CloudLab</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.ico">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/index.css'>
-    <script src='/static/jsmain.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/index.css'>
+    <script src='main.js'></script>
 </head>
 <body>
     <nav id="navbar">
-        <img src="/static/img/Logo.png" alt="Logo do laboratório">
+        <img src="/img/Logo.png" alt="Logo do laboratório">
         <div class="titulo">
             <h2>CloudLab</h2>
             <h5> Laboratório de exames</h5>
@@ -24,7 +24,7 @@
             <a href="#">informações</a>
         </ul>
         <div class="acoes">
-            <a class="login" href="{{url_for('paciente_auth_routes.mostrar_login')}}">Login</a>
+            <a class="login" href="/html/login.html">Login</a>
             <a class="cadastro" href="#">Cadastre-se</a>
         </div>
     </nav>
@@ -36,17 +36,133 @@
             <a href="#">Contate-nos</a>
         </div>
         <div class="nuvemtopo">
-            <img src="/static/img/nuvemTopo.png">
-            <img src="/static/img/nuvemCor.png">
+            <img src="/img/nuvemTopo.png">
+            <img src="/img/nuvemCor.png">
         </div>
     </section>
 
     <section id="sobre">
         <div class="lab">
-            <img src="/static/img/labTopo.png">
+            <img src="/img/labTopo.png">
         </div>
-        
+        <div class="texto-sobre">
+            <h2>CloudLab, seu laboratório seguro como a nuvem...</h2>
+            <p>Fundada em 2020 com o propósito de oferecer apoio no diagnóstico e tratamento da Covid-19, a CloudLab nasceu como uma iniciativa filantrópica idealizada por médicos e bioquímicos comprometidos com a saúde e o bem-estar da população. Desde o início, o laboratório se destacou pela agilidade, precisão e confiabilidade de seus resultados, contribuindo de forma significativa no enfrentamento à pandemia e no fortalecimento da saúde pública.</p>
+            <p>Com o passar dos anos, a CloudLab expandiu suas áreas de atuação e consolidou-se como referência em exames clínicos de diagnóstico, oferecendo tecnologia de ponta, equipe altamente qualificada e atendimento humanizado. Hoje, a empresa continua sua missão de promover saúde e qualidade de vida, unindo inovação científica e cuidado com cada paciente que confia em seus serviços.</p>
+            <a class="saibamais" href="#">Saiba mais!</a>
+        </div>
     </section>
+
+    <h2>Conheça alguns dos nossos exames</h2>
+    <p>Passe o mouse por cima para ver a descrição</p>
+    <section id="exames">
+        <div class="main-content">
+            <div class="exame">
+                <img src="/img/iconmicrocospio.png">
+                <h4>Hormonais</h4>
+                <div class="descricao">
+                    <p>São testes laboratoriais que medem a quantidade de hormônios no organismo para avaliar o funcionamento do sistema endócrino</p>
+                </div>
+            </div>
+
+            <div class="exame">
+                <img src="/img/iconGotaBranca.png">
+                <h4>Hemograma</h4>
+                <div class="descricao">
+                    <p>É um exame de sangue que avalia as três principais células sanguíneas: glóbulos vermelhos, brancos e plaquetas. </p>
+                </div>
+            </div>
+            <div class="exame">
+                <img src="/img/iconSorologia.png">
+                <h4>Sorologias</h4>
+                <div class="descricao">
+                    <p>Análises de sangue que buscam por anticorpos e, às vezes, por antígenos para diagnosticar infecções e avaliar a resposta imunológica do corpo a elas</p>
+                </div>
+            </div>
+            <div class="exame">
+                <img src="/img/iconColesterol.png">
+                <h4>Colesterol</h4>
+                <div class="descricao">
+                    <p>Verifica os níveis de gordura no sangue (LDL, HDL, VLDL e triglicerídeos) através de uma amostra de sangue</p>
+                </div>
+            </div>
+        </div>
+        <div class="prop">
+            <h3>Marque agora o seu!</h3>
+            <a class="saibamais" href="#">Saiba mais!</a>
+        </div>
+    </section>
+
+
+    <section id="avaliacoes"> 
+            <h3>Veja alguns dos nossos feedbacks recentes</h3>
+            <div class="main-content">
+                <div class="coment">
+                    <div class="info-perfil">
+                        <img src="/img/iconPerfil.png" alt="Icone de Perfil">
+                        <p class="nome-idade">Luana Silva, 25 anos</p>
+                    </div>
+                    <div class="rating">
+                        <img src="/img/cincoEstrelas.png" alt="5 Estrelas">
+                    </div>
+                    <p class="texto-comentario">Foi em acompanhamento coma CloudLab, a partir de exames e testes constantes que realizei meu sonho de ser mãe.</p>
+                </div>
+                <div class="coment">
+                    <div class="info-perfil">
+                        <img src="/img/iconPerfil.png" alt="Icone de Perfil">
+                        <p class="nome-idade">Mariana, 32 anos</p>
+                    </div>
+                    <div class="rating">
+                        <img src="/img/cincoEstrelas.png" alt="5 Estrelas">
+                    </div>
+                    <p class="texto-comentario">Excelente atendimento! Fui muito bem recebida e meus resultados saíram rápido. A CloudLab mostra cuidado e profissionalismo em cada detalhe.</p>
+                </div>
+                <div class="coment">
+                    <div class="info-perfil">
+                        <img src="/img/iconPerfil.png" alt="Icone de Perfil">
+                        <p class="nome-idade">João Silva, 45 anos</p>
+                    </div>
+                    <div class="rating">
+                        <img src="/img/cincoEstrelas.png" alt="5 Estrelas">
+                    </div>
+                    <p class="texto-comentario">Serviço rápido e eficiente. Recomendo a todos que buscam qualidade e pontualidade nos exames.</p>
+                </div>
+            </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            
+            <div class="footer-col-item">
+                <img src="/img/iconLocalizacao.png" alt="Localização">
+                <div>
+                    <p>CloudLab - 2020</p>
+                    <p>09961660, Rua Barão de Vitória</p>
+                    <p>São Paulo - SP, Brasil</p>
+                </div>
+            </div>
+
+            <div class="footer-col-item">
+                <img src="/img/iconTelefone.png" alt="Telefone">
+                <div>
+                    <p>Entre em contato conosco</p>
+                    <p>através do telefone:</p>
+                    <p>+55 (11) 23322046</p>
+                    <p>+55 (11) 33215728</p>
+                    <p>+55 (11) 20963388</p>
+                </div>
+            </div>
+
+            <div class="footer-col-item">
+                <img src="/img/iconEmail.png" alt="Email">
+                <div>
+                    <p>Nos mande uma mensagem:</p>
+                    <p>cloudlab_contato@gmail.com</p>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
 
 </body>
 </html>

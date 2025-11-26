@@ -4,16 +4,16 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title >CloudLab</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.ico">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/agendamentos.css'>
-    <script src="/static/js/calendar.js" defer></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/agendamentos.css'>
+    <script src="/js/calendar.js" defer></script>
 </head>
 <body>
     <nav id="navbar">
-        <img src="/static/img/Logo.png" alt="Logo do laboratório">
+        <img src="/img/Logo.png" alt="Logo do laboratório">
         <h1>Visualizar Agendamentos</h1>
-        <a class="voltar" href="{{ url_for('paciente_routes.mostrar_home') }}" ><img src="/static/img/setaVoltar.png" alt="Icone voltar"></a>
+        <a class="voltar" href="#" ><img src="/img/setaVoltar.png" alt="Icone voltar"></a>
     </nav>
     <section id="calendario">
         <div class="calendar">
@@ -32,18 +32,29 @@
     <section id="form-container">
         <div class="historico">
             <div class="col-esquerda">
-                <h2>segunda-feira, 22 de Setembro de 2025</h2>
-                <p>08:30</p>
+                <h2>Exame de Sangue</h2>
+                <p>08:30 sábado, 29 NOV 2025</p>
             </div>
             <div class="col-direita">
-                <p>Agendamento de Exame de Sangue</p>
+                <div class="acao-item reagendar-item">
+                    <a class="reagendar" href="#"><img src="/img/iconReagendar.png" alt="Icone reagendar"></a>
+                    <p>Reagendar</p>
+                </div>
+                <div class="acao-item cancelar-item">
+                    <a class="cancelar" href="#"><img src="/img/iconCancelar.png" alt="Icone cancelar"></a>
+                    <p>Cancelar</p>
+                </div>
+                <div class="acao-item instrucoes-item">
+                    <a class="instrucoes" href="#"><img src="/img/iconInstucoes.png" alt="Icone instruções"></a>
+                    <p>Instruções</p>
+                </div>
             </div>
         </div>
 
         <div class="acoes">
-            <button class="resulOnline" href="#">Ver Resultado Online</button>
-            <button class="resulBaixar" href="#">Baixar PDF</button>
-            <button class="resulBaixar" href="#">Baixar PDF</button>
+            <button class="" href="#">09961660, Rua Barão de Vitória</button>
+            <button class="" href="#">(11) 23322046</button>
+            <button class="resulOnline" href="https://share.google/AEGx4SPLvfMBjmHnQ">[Ver no maps]</button>
         </div>
     </section>
 </body>
